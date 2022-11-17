@@ -1,11 +1,10 @@
+from functools import reduce
 per_cent = {'ТКБ': 5.6, 'СКБ': 5.9, 'ВТБ': 4.28, 'СБЕР': 4.0}
-money=float(input('Введите сумму вклада:'))
-ТКБ=money/100*5.6
-СКБ=money/100*5.9
-ВТБ=money/100*4.28
-СБЕР=money/100*4.0
-deposit=['ТКБ','СКБ','ВТБ','СБЕР']
-max_number = max(deposit)
-print('Сумма накоплений за год составит:',ТКБ,СКБ,ВТБ,СБЕР)
-
-print('Максимальная сумма, которую вы можете заработать:',max_number)
+money=int(input('Введите сумму вклада:'))
+TKB = int((per_cent['ТКБ']) * (money/100))
+SKB = int((per_cent['СКБ']) * (money/100))
+VTB = int((per_cent['ВТБ']) * (money/100))
+SBER = int((per_cent['СБЕР']) * (money/100))
+deposit=[ТКБ,СКБ,ВТБ,СБЕР]
+print('Сумма накоплений за год составит:',deposit)
+print('Максимальная сумма, которую вы можете заработать:', reduce(max, deposit))
